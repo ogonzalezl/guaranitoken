@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GUARANI Token (GS)</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    async function updateCryptoPrices() {
+      try {
+        const res = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,binancecoin&vs_currencies=usd');
+        const data = await res.json();
+        document.getElementById("btc-price").innerText = `$${data.bitcoin.usd}`;
+        document.getElementById("eth-price").innerText = `$${data.ethereum.usd}`;
+        document.getElementById("bnb-price").innerText = `$${data.binancecoin.usd}`;
+      } catch (err) {
+        console.error("Error al obtener precios:", err);
+      }
+    }
+    setInterval(updateCryptoPrices, 10000);
+    window.onload = updateCryptoPrices;
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Segoe UI', sans-serif; }
+    header {
+      background: #ffd700;
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+    header img {
+      max-width: 120px;
+      animation: pulse 3s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    .whitepaper, .tutorial, .roadmap {
+      background-color: #fff3cd;
+      padding: 2rem;
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    footer {
+      background-color: #343a40;
+      color: #fff;
+      padding: 2rem;
+      text-align: center;
+    }
+    .feature-box {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 0.75rem;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+    }
+    .feature-box:hover {
+      transform: translateY(-5px);
+    }
+    .crypto-prices {
+      background-color: #000;
+      color: #fff;
+      padding: 1rem 0;
+      text-align: center;
+    }
+    .crypto-prices span {
+      margin: 0 15px;
+      font-weight: bold;
+    }
+    .wallet-icons img {
+      height: 32px;
+      margin: 0 10px;
+    }
+  </style>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  </head>
+    
+<body>
+
+  <div class="crypto-prices">
+    <span>BTC: <span id="btc-price">...</span></span>
+    <span>ETH: <span id="eth-price">...</span></span>
+    <span>BNB: <span id="bnb-price">...</span></span>
+  </div>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">GUARANI</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#quees">¿Qué es?</a></li>
+          <li class="nav-item"><a class="nav-link" href="#whitepaper">Whitepaper</a></li>
+          <li class="nav-item"><a class="nav-link" href="#roadmap">Roadmap</a></li>
+          <li class="nav-item"><a class="nav-link" href="#tutorial">Tutorial</a></li>
+          <li class="nav-item"><a class="nav-link" href="#footer">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header id="inicio" class="animate__animated animate__fadeInDown">
+    <img src="https://raw.githubusercontent.com/ogonzalezl/og/83246b82fa0dd8e75139654d463e1008a1af966b/logo.png" alt="GUARANI Token Logo">
+    <h1 class="mt-3">GUARANI Token (GS)</h1>
+    <p class="lead">El futuro digital del Paraguay</p>
+  </header>
+
+  <section class="container text-center wallet-icons mb-4 animate__animated animate__fadeIn">
+    <p>Agregá el token a tu wallet:</p>
+    <img src="https://github.com/ogonzalezl/og/blob/2f4d700b2a6711d8c9be1bc6597af1b9a5ba255b/MetaMask_Fox.svg.png?raw=true" alt="MetaMask">
+    <img src="https://github.com/ogonzalezl/og/blob/2f4d700b2a6711d8c9be1bc6597af1b9a5ba255b/32179889.png?raw=true" alt="Trust Wallet">
+  </section>
+
+  <section class="container text-center" id="quees">
+    <h2 class="mb-4">¿Qué es GUARANI (GS)?</h2>
+    <p class="mb-4">GUARANI (GS) es un token digital basado en la Binance Smart Chain que busca impulsar la identidad financiera del Paraguay mediante tecnología blockchain.</p>
+
+    <div class="row g-4 mt-5">
+      <div class="col-md-4">
+        <div class="feature-box">
+          <h5>Suministro Fijo</h5>
+          <p>1.000.000.000.000 GS emitidos una sola vez, garantizando escasez y valor.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-box">
+          <h5>0% de Comisiones</h5>
+          <p>Sin tasas de compra o venta. Tu valor, sin recortes.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-box">
+          <h5>Preparado para Staking</h5>
+          <p>Diseñado para integrarse con plataformas de staking en el futuro.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="whitepaper container mt-5" id="whitepaper">
+    <h2 class="mb-4">Whitepaper</h2>
+    <ul>
+      <li><strong>Nombre:</strong> GUARANI</li>
+      <li><strong>Símbolo:</strong> GS</li>
+      <li><strong>Red:</strong> Binance Smart Chain (BEP-20)</li>
+      <li><strong>Contrato:</strong> <a href="https://bscscan.com/address/0x5F9Cbb21B7F86292C1798C980109fc6A37Bf2e25" target="_blank">0x5F9Cbb21B7F86292C1798C980109fc6A37Bf2e25</a></li>
+      <li><strong>Suministro total:</strong> 1.000.000.000.000 GS</li>
+      <li><strong>Funcionalidades:</strong> Transferencias, integración futura con staking, gobernanza y fidelización.</li>
+    </ul>
+  </section>
+
+  <section class="roadmap container mt-5" id="roadmap">
+    <h2 class="mb-4">Roadmap del Proyecto</h2>
+    <ul>
+      <li><strong>Q3 2025:</strong> Lanzamiento del token GUARANI en BSC y verificación en BscScan.</li>
+      <li><strong>Q4 2025:</strong> Listado en plataformas como PancakeSwap. Creación de comunidad.</li>
+      <li><strong>Q1 2026:</strong> Plataforma de staking y primeras alianzas estratégicas.</li>
+      <li><strong>Q2 2026:</strong> Incorporación en billeteras como TrustWallet y MetaMask con logo oficial.</li>
+      <li><strong>Q3 2026:</strong> Inicio de gobernanza descentralizada (DAO) para holders de GS.</li>
+      <li><strong>Q4 2026:</strong> Integración con servicios financieros regionales y nuevos casos de uso.</li>
+    </ul>
+  </section>
+
+  <section class="tutorial container mt-5" id="tutorial">
+    <h2 class="mb-4">Cómo agregar GUARANI (GS) a tu wallet</h2>
+    <ol>
+      <li>Abrí tu wallet (MetaMask o Trust Wallet)</li>
+      <li>Seleccioná "Agregar token personalizado"</li>
+      <li>Pegá esta dirección: <code>0x5F9Cbb21B7F86292C1798C980109fc6A37Bf2e25</code></li>
+      <li>Nombre: <strong>GUARANI</strong></li>
+      <li>Símbolo: <strong>GS</strong></li>
+      <li>Decimales: <strong>18</strong></li>
+      <li>Confirmá. ¡Listo!</li>
+    </ol>
+    <p class="mt-3">Ahora podés recibir, enviar o guardar tus tokens GUARANI en tu wallet favorita.</p>
+  </section>
+
+  <footer id="footer">
+    <p>&copy; 2025 GUARANI Token | Desarrollado por Oscar G.</p>
+  </footer>
+
+</body>
+</html>
